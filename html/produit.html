@@ -28,87 +28,51 @@
 
     <main>
 
-      <!----- section accueil ----->
-      <section class=" container-accueil">
+      <!----- section image produit ----->
 
-        <article class="texte-accueil">
-          <h1>Qui sommes-nous ?</h1>
-          <p>Jean et Jacques Pepper, deux frères passionnés par le café, sont les fondateurs de notre boutique. Avec une
-            expertise approfondie et un amour profond pour cette délicieuse boisson, ils ont créé un espace où le café
-            est célébré comme une expérience raffinée et inspirante.</p>
-          <a href="">Voir catalogue</a>
-        </article>
-        <img id="image-accueil" src="/images/100955890.png" alt="à décrire">
+      <h1>nom du produit</h1>
 
-      </section>
+      <article class="productContainer">
 
-      <!----- section présentation ----->
-      <section class="container-présentation">
-        <h1>Ambiance de la boutique
-        </h1>
-        <p>Bienvenue dans notre boutique, où règne une ambiance chaleureuse et accueillante qui éveille tous vos sens.
-          Dès que vous franchissez la porte, vous êtes enveloppé d'une douce symphonie d'arômes envoûtants de café
-          fraîchement moulu.
 
-          L'atmosphère est empreinte d'une lueur chaleureuse, avec des lumières tamisées qui créent des jeux d'ombres et
-          de lumières apaisants. Les murs sont ornés d'éléments rustiques, de panneaux en bois et de photographies
-          captivantes de plantations de café, évoquant l'origine de ces délices aromatiques.
 
-          Les étagères en bois exposent fièrement une variété de grains de café provenant des quatre coins du monde,
-          chacun racontant une histoire unique de terroir et de culture. Les sacs de café empilés dévoilent une palette
-          de couleurs allant des tons chocolat aux nuances ambrées, invitant à l'exploration sensorielle.
+      </article>
 
-          Le cliquetis des tasses et des cuillères résonne joyeusement dans l'air et le son réconfortant des machines à
-          expresso en action crée une symphonie orchestrée avec soin, soulignant l'expertise et l'art qui se cachent
-          derrière chaque tasse de café servie.
-
-          Les coins douillets sont parsemés de fauteuils confortables et de canapés moelleux, invitant nos clients à
-          s'installer et à se perdre dans un bon livre, ou simplement à profiter d'une conversation entre amis. L'odeur
-          enivrante du café fraîchement infusé flotte dans l'air, créant une ambiance propice à la détente et à la
-          contemplation.
-
-          Le personnel attentionné et passionné est toujours prêt à partager ses connaissances et ses recommandations,
-          créant un lien chaleureux entre les amateurs de café et les artisans qui le préparent avec soin. Chaque visite
-          est une expérience personnelle, où le client est accueilli comme un ami de longue date.
-
-          Dans notre détaillant de café, l'ambiance chaleureuse vous invite à ralentir le rythme trépidant de la vie
-          quotidienne et à savourer l'instant présent. Que vous soyez un connaisseur de café ou un novice curieux, nous
-          sommes là pour vous guider dans un voyage sensoriel inoubliable, où chaque gorgée révèle un monde de saveurs
-          riches et complexes.</p>
-      </section>
-      <!----- section nouveautés ----->
-
-      <section class="nouveautes">
-        <h1>Nouveautés</h1>
-        <div class="container-produits">
-
-          <article class="container-produit">
-            <div class="image-container">
-              <img src="/images/100955890.png" alt="à décrire">
-              <p class="produit">expresso</p>
-            </div>
-            <a href="/produit" class="btn">Découvrir le produit</a>
-          </article>
-
-          <article class="container-produit">
-            <div class="image-container">
-              <img src="/images/100955890.png" alt="à décrire">
-              <p class="produit">expresso</p>
-            </div>
-            <a href="/produit" class="btn">Découvrir le produit</a>
-          </article>
-
-          <article class="container-produit">
-            <div class="image-container">
-              <img src="/images/100955890.png" alt="à décrire">
-              <p class="produit">expresso</p>
-            </div>
-            <a href="/produit" class="btn">Découvrir le produit</a>
-          </article>
-
-          </article>
+      <div class="cardsContainer">
+        <div class="card">
+          <a href="/card/<%= card.id %>">
+            <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration">
+            <p class="cardName">
+              <%= card.name %>
+            </p>
+          </a>
+          <a class="link--addCard" title="Ajouter au deck" href="#">[ + ]</a>
         </div>
-      </section>
+      </div>
+      <div class="details">
+        <p><span>Elément</span> : <%= card.element || 'Aucun' %>
+        </p>
+        <p><span>Niveau</span> : <%= card.level %>
+        </p>
+        <p><span>Valeurs</span> : </p>
+        <ul>
+          <li>Nord : <%= card.value_north %>
+          </li>
+          <li>Est : <%= card.value_east %>
+          </li>
+          <li>Sud : <%= card.value_south %>
+          </li>
+          <li>Ouest : <%= card.value_west %>
+          </li>
+        </ul>
+
+      </div>
+
+
+
+
+
+
 
     </main>
 

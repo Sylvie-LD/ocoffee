@@ -19,8 +19,8 @@
     <header class="header">
       <img id="logo" src="/images/logo.svg" alt="Logo O'Coffee">
       <nav class="nav">
-        <a href="/accueil">Accueil</a>
-        <a href="./catalogue.html">catalogue</a>
+        <a href="./accueil.html">Accueil</a>
+        <a href="./catalogue.html">Catalogue</a>
         <a href="">Recherche</a>
         <a href="">Favoris</a>
       </nav>
@@ -29,20 +29,32 @@
     <main>
 
       <!----- section notre catalogue ----->
-      <section class=" container-catalogue">
-
-
-        <h1>Notre catalogue</h1>
-        <img id="image-accueil" src="/images/100955890.png" alt="à décrire">
-
+      <h1 class="h1">Notre catalogue</h1>
+      <section class="container-catalogue">
+        <h2 class="titre-choisir-cafe">Choisissez votre café</h2>
       </section>
 
       <!----- section formulaire recherche par catégories ----->
+      <section class="container-formulaire">
+        <h2 class="recherche-categorie">Recherchez votre café en fonction de sa catégorie</h2>
 
+        <form action="/search/categorie" method="get">
+          <select name="categorie" id="categorie">
+            <option value="null">aucun</option>
+            <option value="categorie1">categorie 1</option>
+            <option value="categorie2">categorie 1</option>
+            <option value="categorie3">categorie 1</option>
+            <option value="categorie4">categorie 1</option>
+            <option value="categorie5">categorie 1</option>
+
+          </select>
+          <input type="submit" value="Chercher">
+        </form>
+      </section>
 
 
       <!----- section produits ----->
-
+      <h2 class="titre-presentation-produits">Découvrez nos cafés</h2>
       <section class="catalogue-produits">
         <article class="container-produit">
           <div class="image-container">
@@ -71,7 +83,9 @@
         </article>
       </section>
 
-      <section>
+      <!----- section voir plus de produits ----->
+
+      <section class="voir-plus-produits">
         <button class="btn-produits">VOIR PLUS DE PRODUITS</button>
       </section>
 
