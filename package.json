@@ -1,0 +1,26 @@
+{
+  "name": "s09-ocoffee-sylvie-ld",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Présenter un catalogue de la boutique physique [Le projet](./docs/demande-client/)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.20.0"
+  }
+}
