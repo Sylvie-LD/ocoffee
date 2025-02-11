@@ -1,10 +1,22 @@
+// Importer les variables d'environnement
 import "dotenv/config";
 
+// Import des dépendances
+import path from "node:path";
 import express from "express";
 import router from "./app/router.js";
 
 // Creation de l'app Express
 const app = express();
+
+// Configuration du moteur de template (EJS)
+app.set("view engine", "ejs");
+app.set("views", path.join(import.meta.dirname, "./app/views"));
+
+// dans correction S08 : app.set("views", "app/views"); ??
+
+// Ajout d'un dossier public pour les ressources statiques
+app.use(express.static(path.join(import.meta.dirname, "./public")));
 
 // Brancher le routeur
 app.use(router);
