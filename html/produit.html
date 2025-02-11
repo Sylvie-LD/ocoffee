@@ -19,8 +19,8 @@
     <header class="header">
       <img id="logo" src="/images/logo.svg" alt="Logo O'Coffee">
       <nav class="nav">
-        <a href="/accueil">Accueil</a>
-        <a href="/catalogue">catalogue</a>
+        <a href="./accueil.html">Accueil</a>
+        <a href="./catalogue.html">catalogue</a>
         <a href="">Recherche</a>
         <a href="">Favoris</a>
       </nav>
@@ -30,62 +30,52 @@
 
       <!----- section image produit ----->
 
-      <h1>nom du produit</h1>
+      <h1 class="productName">nom du café</h1>
+      <div class="container-produit-caracteristiques">
+        <article class="productContainer">
+          <div class="cafe">
+            <a href="">
+              <img src="../images/134009550.png" alt="illustration">
+            </a>
 
-      <article class="productContainer">
+          </div>
 
 
+        </article>
 
-      </article>
-
-      <div class="cardsContainer">
-        <div class="card">
-          <a href="/card/<%= card.id %>">
-            <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration">
-            <p class="cardName">
-              <%= card.name %>
-            </p>
-          </a>
-          <a class="link--addCard" title="Ajouter au deck" href="#">[ + ]</a>
-        </div>
+        <article class="details-produit">
+          <h2>Caractéristiques du produit</h2>
+          <ul>
+            <li>Description :
+            </li>
+            <li>Référence :
+            </li>
+            <li>Origine :
+            </li>
+            <li>Prix au kilo :
+            </li>
+            <li>Caractéristique principale :
+            </li>
+            <li>Disponible :
+            </li>
+          </ul>
+        </article>
       </div>
-      <div class="details">
-        <p><span>Elément</span> : <%= card.element || 'Aucun' %>
-        </p>
-        <p><span>Niveau</span> : <%= card.level %>
-        </p>
-        <p><span>Valeurs</span> : </p>
-        <ul>
-          <li>Nord : <%= card.value_north %>
-          </li>
-          <li>Est : <%= card.value_east %>
-          </li>
-          <li>Sud : <%= card.value_south %>
-          </li>
-          <li>Ouest : <%= card.value_west %>
-          </li>
-        </ul>
+      <!-- fin section image produits ----- -->
+  </div>
 
-      </div>
+  </main>
 
-
-
-
-
-
-
-    </main>
-
-    <footer class="footer">
-      <div class="footer-container">
-        <nav class="footer-nav">
-          <a href="contact.html">Contact</a>
-          <a href="mentions-legales.html">Mentions légales</a>
-        </nav>
-        <p>&copy; 2024 O'Coffee - Tous droits réservés.</p>
-        <p>Un site dédié aux amateurs de café.</p>
-      </div>
-    </footer>
+  <footer class="footer">
+    <div class="footer-container">
+      <nav class="footer-nav">
+        <a href="contact.html">Contact</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </nav>
+      <p>&copy; 2024 O'Coffee - Tous droits réservés.</p>
+      <p>Un site dédié aux amateurs de café.</p>
+    </div>
+  </footer>
   </div>
 </body>
 
