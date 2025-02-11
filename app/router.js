@@ -9,22 +9,18 @@ const router = Router();
 //   res.send("Hello World!");
 // });
 
+// page accueil
 router.get("/", mainController.renderHomePage);
 
-router.get("/catalogue", (req, res) => {
-  res.render("catalogue");
-});
+// page catalogue
+router.get("/catalogue", mainController.renderCatalogPage);
 
-// router.get("/", mainController.renderCatalogPage);
+// page produit
+router.get("/produit/:id", mainController.renderProductPage);
 
-router.get("/produit", (req, res) => {
-  res.render("produit");
-});
-
-// router.get("/", mainController.renderProductPage);
-
-router.get("/404", (req, res) => {
-  res.render("404");
-});
+//404
+// router.get("/404", (req, res) => {
+//   res.render("404");
+// });
 
 export default router;

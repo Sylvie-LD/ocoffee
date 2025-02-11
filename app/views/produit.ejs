@@ -4,12 +4,14 @@
 
     <!----- section image produit ----->
 
-    <h1 class="productName">nom du café</h1>
+    <h1 class="productName">
+      <%=coffee.coffee_name%>
+    </h1>
     <div class="container-produit-caracteristiques">
       <article class="productContainer">
         <div class="cafe">
           <a href="">
-            <img src="../images/134009550.png" alt="illustration">
+            <img src="/images/<%= coffee.reference %>.png" alt="illustration">
           </a>
 
         </div>
@@ -20,17 +22,17 @@
       <article class="details-produit">
         <h2>Caractéristiques du produit</h2>
         <ul>
-          <li>Description :
+          <li>Description :<%= coffee.description %>
           </li>
-          <li>Référence :
+          <li>Référence :<%= coffee.reference %>
           </li>
-          <li>Origine :
+          <li>Origine : <%# coffee.origin %>
           </li>
-          <li>Prix au kilo :
+          <li>Prix au kilo :<%= coffee.price_per_kilo %>
           </li>
-          <li>Caractéristique principale :
+          <li>Caractéristique principale :<%# coffee.feature %>
           </li>
-          <li>Disponible :
+          <li>Disponible :<%= coffee.available %>
           </li>
         </ul>
       </article>

@@ -21,6 +21,17 @@ app.use(express.static(path.join(import.meta.dirname, "./public")));
 // Brancher le routeur
 app.use(router);
 
+//404
+app.use((req, res) => {
+  res.status(404).render("404", { path: req.path });
+});
+
+// Middleware 500 : capture les erreurs internes de l'application
+app.use((error, req, res, next) => {
+  console.error(error);
+  res.status(500).render("500", { message: error.message });
+});
+
 // Lancer un serveur
 const port = process.env.PORT || 3000; // Fallback (valeur par défaut) au cas où le .env ne serait pas défini
 app.listen(port, () => {
