@@ -1,4 +1,4 @@
-import { coffee } from "./index.js";
+import { coffee } from "./script.js";
 
 const app = {
   init: function () {
