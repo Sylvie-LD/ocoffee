@@ -5,7 +5,12 @@ export const renderHomePage = (req, res) => {
 };
 
 export const renderCatalogPage = async (req, res) => {
-  res.render("catalogue", { coffees: res.locals.coffees });
+  const title = "Découvrez nos cafés";
+  res.render("catalogue", {
+    coffees: res.locals.coffees,
+    categories: res.locals.categories,
+    title,
+  });
 };
 
 export const renderProductPage = (req, res) => {

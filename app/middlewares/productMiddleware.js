@@ -21,6 +21,16 @@ export const getCoffeesForCatalogPage = async (req, res, next) => {
   }
 };
 
+// Middleware pour récupérer toutes les catégories
+export const getAllCategories = async (req, res, next) => {
+  try {
+    res.locals.categories = await dataMapper.getAllCategories();
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Middleware pour la page produit (récupère un café spécifique)
 export const getCoffeeForProductPage = async (req, res, next) => {
   try {

@@ -3,14 +3,10 @@ import { Router } from "express";
 // on importe nos controllers
 import * as mainController from "./controllers/main.controller.js";
 import * as productMiddleware from "./middlewares/productMiddleware.js";
+import * as searchController from "./controllers/searchController.js";
 
 const router = Router();
 
-// router.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
-
-// page accueil
 router.get(
   "/",
   productMiddleware.getCoffeesForHomePage,
@@ -20,6 +16,7 @@ router.get(
 // page catalogue
 router.get(
   "/catalogue",
+  productMiddleware.getAllCategories,
   productMiddleware.getCoffeesForCatalogPage,
   mainController.renderCatalogPage
 );
@@ -29,6 +26,14 @@ router.get(
   "/produit/:id",
   productMiddleware.getCoffeeForProductPage,
   mainController.renderProductPage
+);
+
+// page recherche
+
+router.get(
+  "/search/category",
+  productMiddleware.getAllCategories,
+  searchController.searchByCategory
 );
 
 //404
