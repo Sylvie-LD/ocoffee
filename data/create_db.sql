@@ -1,4 +1,5 @@
-SET client_encoding = 'UTF8';
+
+set client_encoding to utf8;
 
 -- Suppression de coffee avant les autres car coffee dépend des 2 autres
 DROP TABLE IF EXISTS "coffee" CASCADE;

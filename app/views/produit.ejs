@@ -26,14 +26,17 @@
           </li>
           <li>Référence :<%= coffee.reference %>
           </li>
-          <li>Origine : <%# coffee.origin %>
+          <!-- L'origine du café est stockée sous country_name et non origin -->
+          <li>Origine :j <%= coffee.country_name %>
           </li>
           <li>Prix au kilo :<%= coffee.price_per_kilo %>
           </li>
-          <li>Caractéristique principale :<%# coffee.feature %>
+          <li>Caractéristique principale :<%= coffee.feature %>
           </li>
-          <li>Disponible :<%= coffee.available %>
+          <li class="<%= coffee.available ? 'text-green' : 'text-red' %>">
+            Disponible : <%= coffee.available ? "✅ oui" : "❌ non" %>
           </li>
+
         </ul>
       </article>
     </div>
