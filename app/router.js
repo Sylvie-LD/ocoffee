@@ -13,17 +13,21 @@ const router = Router();
 // page accueil
 router.get(
   "/",
-  productMiddleware.getCoffeeMiddleware,
+  productMiddleware.getCoffeesForHomePage,
   mainController.renderHomePage
 );
 
 // page catalogue
-router.get("/catalogue", mainController.renderCatalogPage);
+router.get(
+  "/catalogue",
+  productMiddleware.getCoffeesForCatalogPage,
+  mainController.renderCatalogPage
+);
 
 // page produit
 router.get(
   "/produit/:id",
-  productMiddleware.getCoffeeMiddleware,
+  productMiddleware.getCoffeeForProductPage,
   mainController.renderProductPage
 );
 
