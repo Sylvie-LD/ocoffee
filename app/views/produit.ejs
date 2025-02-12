@@ -22,6 +22,8 @@
       <article class="details-produit">
         <h2>Caractéristiques du produit</h2>
         <ul>
+          <li>ID :<%= coffee.id %>
+          </li>
           <li>Description :<%= coffee.description %>
           </li>
           <li>Référence :<%= coffee.reference %>
@@ -36,6 +38,7 @@
           <li class="<%= coffee.available ? 'text-green' : 'text-red' %>">
             Disponible : <%= coffee.available ? "✅ oui" : "❌ non" %>
           </li>
+
 
         </ul>
       </article>

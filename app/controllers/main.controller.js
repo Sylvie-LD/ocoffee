@@ -1,10 +1,11 @@
 import * as dataMapper from "../data-mapper.js";
 
 export const renderHomePage = (req, res) => {
-  res.render("accueil");
+  console.log("res.locals.coffees:", res.locals.coffees);
+  res.render("accueil", { coffees: res.locals.coffees });
 };
 
-export const renderCatalogPage = async (req, res) => {
+export const renderCatalogPage = async (req, res, next) => {
   // verification paramètre all présent
   const showALl = req.query.all === "true";
   const coffees = await dataMapper.getAllCoffees(showALl ? 100 : 3);
@@ -14,24 +15,10 @@ export const renderCatalogPage = async (req, res) => {
       // title: 'Liste des cartes'
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).render("error");
+    next(error); // Transmet l'erreur au middleware 500
   }
 };
 
-export const renderProductPage = async (req, res, next) => {
-  try {
-    const coffeeId = parseInt(req.params.id);
-    if (isNaN(coffeeId)) {
-      return next(); // Déclenche une 404 si l'ID n'est pas valide
-    }
-    const coffee = await dataMapper.getOneCoffee(coffeeId);
-    if (!coffee) {
-      return next();
-    }
-
-    res.render("produit", { coffee });
-  } catch (error) {
-    next(error); // Transmet l'erreur au middleware 500
-  }
+export const renderProductPage = (req, res) => {
+  res.render("produit", { coffee: res.locals.coffee });
 };

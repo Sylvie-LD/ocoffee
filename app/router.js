@@ -2,6 +2,7 @@ import { Router } from "express";
 
 // on importe nos controllers
 import * as mainController from "./controllers/main.controller.js";
+import * as productMiddleware from "./middlewares/productMiddleware.js";
 
 const router = Router();
 
@@ -10,13 +11,21 @@ const router = Router();
 // });
 
 // page accueil
-router.get("/", mainController.renderHomePage);
+router.get(
+  "/",
+  productMiddleware.getCoffeeMiddleware,
+  mainController.renderHomePage
+);
 
 // page catalogue
 router.get("/catalogue", mainController.renderCatalogPage);
 
 // page produit
-router.get("/produit/:id", mainController.renderProductPage);
+router.get(
+  "/produit/:id",
+  productMiddleware.getCoffeeMiddleware,
+  mainController.renderProductPage
+);
 
 //404
 // router.get("/404", (req, res) => {

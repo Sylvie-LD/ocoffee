@@ -19,31 +19,22 @@
       <h2>Nouveautés</h2>
       <div class="container-produits">
 
-        <article class="container-produit">
-          <div class="image-container">
-            <img src="/images/100955890.png" alt="à décrire">
-            <p class="produit">expresso</p>
-          </div>
-          <a href="/produit" class="btn">Découvrir le produit</a>
-        </article>
+        <!-- <p>Type de coffees dans EJS : <%# typeof coffees %>
+        </p>
+        <pre>Contenu de coffees dans EJS : <%# JSON.stringify(coffees, null, 2) %></pre> -->
 
-        <article class="container-produit">
-          <div class="image-container">
-            <img src="/images/100955890.png" alt="à décrire">
-            <p class="produit">expresso</p>
-          </div>
-          <a href="/produit" class="btn">Découvrir le produit</a>
-        </article>
 
-        <article class="container-produit">
-          <div class="image-container">
-            <img src="/images/100955890.png" alt="à décrire">
-            <p class="produit">expresso</p>
-          </div>
-          <a href="/produit" class="btn">Découvrir le produit</a>
-        </article>
-
-        </article>
+        <% for (const coffee of coffees) { %>
+          <article class="container-produit">
+            <div class="image-container">
+              <img src="/images/<%= coffee.reference %>.png" alt="à décrire">
+              <p class="produit">
+                <%= coffee.coffee_name %>
+              </p>
+            </div>
+            <a href="/produit/<%= coffee.id %>" class="btn">Découvrir le produit</a>
+          </article>
+          <% } %>
       </div>
     </section>
 
