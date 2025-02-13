@@ -1,43 +1,69 @@
-<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html lang="fr">
 
 
-  <main>
-    <section class=" container-accueil">
+<head>
+  <!-- include -->
+  <%- include('partials/head') %>
 
-      <article class="texte-accueil">
-        <h1 class="h1">Qui sommes-nous ?</h1>
-        <p>Jean et Jacques Pepper, deux frères passionnés par le café, sont les fondateurs de notre boutique. Avec une
-          expertise approfondie et un amour profond pour cette délicieuse boisson, ils ont créé un espace où le café
-          est célébré comme une expérience raffinée et inspirante.</p>
-        <a href="/catalogue">Voir notre catalogue</a>
-      </article>
-      <img id="image-accueil" src="/images/about.jpg" alt="à décrire">
+    <!-- title -->
+    <title>oCoffee</title>
 
-    </section>
+    <!-- style -->
+    <link rel="stylesheet" href="/css/accueil.css">
+    <link rel="stylesheet" href="/css/styles.css">
 
-    <section class="nouveautes">
-      <h2>Nouveautés</h2>
-      <div class="container-produits">
 
-        <!-- <p>Type de coffees dans EJS : <%# typeof coffees %>
+</head>
+
+<body class="body">
+  <div class="container-global">
+    <%- include('partials/header') %>
+
+      <main class="main">
+        <section class=" container-accueil">
+
+          <article class="texte-accueil">
+            <h1 class="h1">Qui sommes-nous ?</h1>
+            <img id="img-freres" src="/images/freres-pepper.webp" alt="à décrire">
+
+            <p>Jean et Jacques Pepper, deux frères passionnés par le café, sont les fondateurs de notre boutique. Avec
+              une
+              expertise approfondie et un amour profond pour cette délicieuse boisson, ils ont créé un espace où le café
+              est célébré comme une expérience raffinée et inspirante.</p>
+            <a href="/catalogue">Voir notre catalogue</a>
+          </article>
+          <img id="image-accueil" src="/images/about.jpg" alt="à décrire">
+
+        </section>
+
+        <section class="nouveautes">
+          <h2>Nouveautés</h2>
+          <div class="container-produits">
+
+            <!-- <p>Type de coffees dans EJS : <%# typeof coffees %>
         </p>
         <pre>Contenu de coffees dans EJS : <%# JSON.stringify(coffees, null, 2) %></pre> -->
 
 
-        <% for (const coffee of coffees) { %>
-          <article class="container-produit">
-            <div class="image-container">
-              <img src="/images/<%= coffee.reference %>.png" alt="à décrire">
-              <p class="produit">
-                <%= coffee.coffee_name %>
-              </p>
-            </div>
-            <a href="/produit/<%= coffee.id %>" class="btn">Découvrir le produit</a>
-          </article>
-          <% } %>
-      </div>
-    </section>
+            <% for (const coffee of coffees) { %>
+              <article class="container-produit">
+                <div class="image-container">
+                  <img src="/images/<%= coffee.reference %>.png" alt="à décrire">
+                  <p class="produit">
+                    <%= coffee.coffee_name %>
+                  </p>
+                </div>
+                <a href="/produit/<%= coffee.id %>" class="btn">Découvrir le produit</a>
+              </article>
+              <% } %>
+          </div>
+        </section>
 
-  </main>
+      </main>
 
-  <%- include('./partials/footer') %>
+      <%- include('./partials/footer') %>
+  </div>
+</body>
+
+</html>

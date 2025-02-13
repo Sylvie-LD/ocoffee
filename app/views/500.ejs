@@ -1,23 +1,37 @@
-<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html lang="fr">
 
-  <main>
+<head>
+  <!-- include -->
+  <%- include('partials/head') %>
 
+    <!-- title -->
+    <title>oCoffee</title>
 
+    <!-- style -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
 
+<body class="body">
+  <div class="container-global">
+    <%- include('partials/header') %>
+      <main>
 
-    <h1 class="page-404">500 - Erreur serveur</h1>
-    <h1>C'est pété ¯\(ツ)/¯ </h1>
-    <% if (message) { %>
-      <p>Détails du message: <%= message %>
-      </p>
-      <% } %>
+        <!-- 500 -->
 
-        <img id="img-page-404" src="/images/500.png" alt="">
+        <h1 class="page-404">500 - Erreur serveur</h1>
+        <h1>C'est pété ¯\(ツ)/¯ </h1>
+        <% if (message) { %>
+          <p>Détails du message: <%= message %>
+          </p>
+          <% } %>
 
-  </main>
+            <img id="img-page-404" src="/images/500.png" alt="">
 
+            <!-- COMMUNS FOOTER -->
+      </main>
+      <%- include('./partials/footer') %>
+  </div>
+</body>
 
-  </main>
-
-
-  <%- include('./partials/footer') %>
+</html>

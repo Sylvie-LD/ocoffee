@@ -1,52 +1,70 @@
-<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html lang="fr">
 
-  <main>
+<head>
+  <!-- include -->
+  <%- include('partials/head') %>
 
-    <!----- section image produit ----->
+    <!-- title -->
+    <title>oCoffee</title>
 
-    <h1 class="productName">
-      <%=coffee.coffee_name%>
-    </h1>
-    <div class="container-produit-caracteristiques">
-      <article class="productContainer">
-        <div class="cafe">
-          <a href="">
-            <img src="/images/<%= coffee.reference %>.png" alt="illustration">
-          </a>
+    <!-- style -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
 
+<body class="body">
+  <div class="container-global">
+    <%- include('partials/header') %>
+      <main>
+
+        <!-- 404 -->
+
+        <!----- section image produit ----->
+
+        <h1 class="productName">
+          <%=coffee.coffee_name%>
+        </h1>
+        <div class="container-produit-caracteristiques">
+          <article class="productContainer">
+            <div class="cafe">
+              <a href="">
+                <img src="/images/<%= coffee.reference %>.png" alt="illustration">
+              </a>
+
+            </div>
+
+
+          </article>
+
+          <article class="details-produit">
+            <h2>Caractéristiques du produit</h2>
+            <ul>
+              <li>ID :<%= coffee.id %>
+              </li>
+              <li>Description :<%= coffee.description %>
+              </li>
+              <li>Référence :<%= coffee.reference %>
+              </li>
+              <!-- L'origine du café est stockée sous country_name et non origin -->
+              <li>Origine :j <%= coffee.country_name %>
+              </li>
+              <li>Prix au kilo :<%= coffee.price_per_kilo %>
+              </li>
+              <li>Caractéristique principale :<%= coffee.feature %>
+              </li>
+              <li class="<%= coffee.available ? 'text-green' : 'text-red' %>">
+                Disponible : <%= coffee.available ? "✅ oui" : "❌ non" %>
+              </li>
+
+
+            </ul>
+          </article>
         </div>
+        <!-- fin section image produits ----- -->
+        <!-- COMMUNS FOOTER -->
+      </main>
+      <%- include('./partials/footer') %>
+  </div>
+</body>
 
-
-      </article>
-
-      <article class="details-produit">
-        <h2>Caractéristiques du produit</h2>
-        <ul>
-          <li>ID :<%= coffee.id %>
-          </li>
-          <li>Description :<%= coffee.description %>
-          </li>
-          <li>Référence :<%= coffee.reference %>
-          </li>
-          <!-- L'origine du café est stockée sous country_name et non origin -->
-          <li>Origine :j <%= coffee.country_name %>
-          </li>
-          <li>Prix au kilo :<%= coffee.price_per_kilo %>
-          </li>
-          <li>Caractéristique principale :<%= coffee.feature %>
-          </li>
-          <li class="<%= coffee.available ? 'text-green' : 'text-red' %>">
-            Disponible : <%= coffee.available ? "✅ oui" : "❌ non" %>
-          </li>
-
-
-        </ul>
-      </article>
-    </div>
-    <!-- fin section image produits ----- -->
-    </div>
-
-  </main>
-
-
-  <%- include('./partials/footer') %>
+</html>

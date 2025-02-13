@@ -36,6 +36,9 @@ router.get(
   searchController.searchByCategory
 );
 
+//  page contact
+router.get("/contact", mainController.renderContactPage);
+
 //404
 // router.get("/404", (req, res) => {
 //   res.render("404");

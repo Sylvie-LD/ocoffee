@@ -16,3 +16,7 @@ export const renderCatalogPage = async (req, res) => {
 export const renderProductPage = (req, res) => {
   res.render("produit", { coffee: res.locals.coffee });
 };
+
+export const renderContactPage = (req, res) => {
+  res.render("contact");
+};

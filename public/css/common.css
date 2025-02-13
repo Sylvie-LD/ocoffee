@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container-global {
+  background-color: #333;
+  padding: 10px;
+}
+
+.body {
+  font-family: "Roboto Condensed", serif;
+}
+/* ne fonctionne pas sans classe */
+h2 {
+  color: #5a3e2b;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+/* ====== HEADER ====== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #e6e5da;
+  width: 100%;
+}
+
+#logo {
+  width: 150px; /* Change la taille */
+  height: auto; /* Garde le ratio */
+}
+
+.nav {
+  flex-direction: column;
+  gap: 5px;
+  margin: auto;
+  width: 50%;
+  text-align: end;
+  display: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 2rem;
+}
+
+/* JS au clic pour faire apparaitre menu et modifier l'icone */
+/* on récupère la calsse de la nav et du bouton */
+
+.nav.banner--open {
+  display: flex;
+}
+
+.header-menu__button {
+  background-color: #5a3e2b; /* Marron café */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.header-menu__button::before {
+  content: "\2630"; //icone burger
+
+  margin-right: 0.25rem;
+  display: inline-block;
+  min-width: 1em;
+}
+.header-menu__button.banner--open::before {
+  content: "\00D7"; //icone croix
+}
+
+main {
+  padding: 0px;
+  background-color: #d0c6b8;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* max-width: 1200px; */
+  margin: 11px 0 20px 0; /* Centre le contenu */
+}

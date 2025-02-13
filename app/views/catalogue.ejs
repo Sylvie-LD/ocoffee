@@ -1,77 +1,86 @@
-<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html lang="fr">
 
-  <main>
+<head>
+  <!-- include -->
+  <%- include('partials/head') %>
 
-    <!----- section notre catalogue ----->
-    <h1 class="h1">Notre catalogue</h1>
-    <section class="container-catalogue">
-      <h2 class="titre-choisir-cafe">Choisissez votre café</h2>
-    </section>
+    <!-- title -->
+    <title>oCoffee</title>
 
-    <!----- section formulaire recherche par catégories ----->
-    <section class="container-formulaire">
-      <h2 class="recherche-categorie">Recherchez votre café en fonction de sa catégorie</h2>
+    <!-- style -->
+    <link rel="stylesheet" href="/css/catalogue.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
 
-      <form action="/search/category" method="get">
-        <select name="category" id="categorie">
-          <option value="null">aucune</option>
-          <% for (const category of categories) { %>
-            <option value="<%= category.feature %>">
-              <%= category.feature %>
-            </option>
-            <% } %>
+<body class="body">
+  <div class="container-global">
+    <%- include('partials/header') %>
+      <main>
 
-        </select>
-        <input type="submit" value="Chercher">
-      </form>
-    </section>
+        <!----- section notre catalogue ----->
+        <h1 class="h1">Notre catalogue</h1>
+        <section class="container-catalogue">
+          <h2 class="titre-choisir-cafe">Choisissez votre café</h2>
+        </section>
 
-    <!----- section voir plus de produits ----->
+        <!----- section formulaire recherche par catégories ----->
+        <section class="container-formulaire">
+          <h2 class="recherche-categorie">Recherchez votre café en fonction de sa catégorie</h2>
 
-    <section class="voir-plus-produits">
-      <a href="/catalogue?all=true" class="btn-produits">VOIR TOUS LES PRODUITS</a>
+          <form action="/search/category" method="get">
+            <select name="category" id="categorie">
+              <option value="null">aucune</option>
+              <% for (const category of categories) { %>
+                <option value="<%= category.feature %>">
+                  <%= category.feature %>
+                </option>
+                <% } %>
 
+            </select>
+            <input type="submit" value="Chercher">
+          </form>
+        </section>
 
-      <% if (coffees.length> 3) { %>
-        <a href="/catalogue" class="btn-produits">VOIR MOINS</a>
-    </section>
-    <% } %>
+        <!----- section voir plus de produits ----->
 
-
-
-
-      <!----- section produits catalogue----->
-      <h2 class="titre-presentation-produits">
-        <%= title %>
-      </h2>
-      <h1>
-
-      </h1>
-      <section class="catalogue-produits">
-        <h3>
-          <!-- <%# title %> -->
-
-        </h3>
-        <% for (const coffee of coffees) { %>
-          <article class="container-produit-catalogue">
-            <div class="image-container-catalogue">
-              <img src="/images/<%=coffee.reference%>.png" alt="à décrire">
-              <p class="produit">
-                <%=coffee.coffee_name%>
-              </p>
-            </div>
-            <a href="/produit/<%=coffee.id%>" class="btn">Découvrir le produit</a>
-          </article>
-          <% } %>
-
-      </section>
+        <section class="voir-plus-produits">
+          <a href="/catalogue?all=true" class="btn-produits">VOIR TOUS LES PRODUITS</a>
 
 
+          <% if (coffees.length> 3) { %>
+            <a href="/catalogue" class="btn-produits">VOIR MOINS</a>
+        </section>
+        <% } %>
 
+          <!----- section produits catalogue----->
+          <h2 class="titre-presentation-produits">
+            <%= title %>
+          </h2>
+          <h1>
 
+          </h1>
+          <section class="catalogue-produits">
+            <h3>
+              <!-- <%# title %> -->
+            </h3>
+            <% for (const coffee of coffees) { %>
+              <article class="container-produit-catalogue">
+                <div class="image-container-catalogue">
+                  <img src="/images/<%=coffee.reference%>.png" alt="à décrire">
+                  <p class="produit">
+                    <%=coffee.coffee_name%>
+                  </p>
+                </div>
+                <a href="/produit/<%=coffee.id%>" class="btn">Découvrir le produit</a>
+              </article>
+              <% } %>
+          </section>
 
-  </main>
+          <!-- COMMUNS FOOTER -->
+      </main>
+      <%- include('./partials/footer') %>
+  </div>
+</body>
 
-
-
-  <%- include('./partials/footer') %>
+</html>
