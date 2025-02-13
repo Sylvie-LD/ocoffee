@@ -9,7 +9,7 @@
     <title>oCoffee</title>
 
     <!-- style -->
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/produit.css">
 </head>
 
 <body class="body">
@@ -37,16 +37,14 @@
           </article>
 
           <article class="details-produit">
-            <h2>Caractéristiques du produit</h2>
+            <h2>
+              <%= coffee.description %>
+            </h2>
             <ul>
-              <li>ID :<%= coffee.id %>
-              </li>
-              <li>Description :<%= coffee.description %>
-              </li>
               <li>Référence :<%= coffee.reference %>
               </li>
               <!-- L'origine du café est stockée sous country_name et non origin -->
-              <li>Origine :j <%= coffee.country_name %>
+              <li>Origine : <%= coffee.country_name %>
               </li>
               <li>Prix au kilo :<%= coffee.price_per_kilo %>
               </li>
@@ -55,8 +53,6 @@
               <li class="<%= coffee.available ? 'text-green' : 'text-red' %>">
                 Disponible : <%= coffee.available ? "✅ oui" : "❌ non" %>
               </li>
-
-
             </ul>
           </article>
         </div>
