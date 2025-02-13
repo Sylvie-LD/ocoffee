@@ -10,7 +10,7 @@
 
     <!-- style -->
     <link rel="stylesheet" href="/css/catalogue.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <!-- <link rel="stylesheet" href="/css/styles.css"> -->
 </head>
 
 <body class="body">
@@ -57,24 +57,26 @@
           <h2 class="titre-presentation-produits">
             <%= title %>
           </h2>
-          <h1>
 
-          </h1>
           <section class="catalogue-produits">
-            <h3>
-              <!-- <%# title %> -->
-            </h3>
-            <% for (const coffee of coffees) { %>
-              <article class="container-produit-catalogue">
-                <div class="image-container-catalogue">
-                  <img src="/images/<%=coffee.reference%>.png" alt="à décrire">
-                  <p class="produit">
-                    <%=coffee.coffee_name%>
+            <article class="container-produits-catalogue">
+              <% for (const coffee of coffees) { %>
+                <div class="container-produit">
+                  <p class="produit_name">
+                    <%=coffee.coffee_name%> - <%= coffee.price_per_kilo %> € le kilo
                   </p>
+                  <p class="produit_name">
+
+                  </p>
+                  <img src="/images/<%=coffee.reference%>.png" alt="illustration de <%=coffee.coffee_name%>">
+
+
+                  <a href="/produit/<%=coffee.id%>" class="btn">
+                    Détails
+                  </a>
                 </div>
-                <a href="/produit/<%=coffee.id%>" class="btn">Découvrir le produit</a>
-              </article>
-              <% } %>
+                <% } %>
+            </article>
           </section>
 
           <!-- COMMUNS FOOTER -->
