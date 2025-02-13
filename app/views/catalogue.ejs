@@ -10,7 +10,7 @@
 
     <!-- style -->
     <link rel="stylesheet" href="/css/catalogue.css">
-    <!-- <link rel="stylesheet" href="/css/styles.css"> -->
+
 </head>
 
 <body class="body">
@@ -42,6 +42,28 @@
           </form>
         </section>
 
+        <!----- section produits catalogue----->
+
+
+        <section class="catalogue-produits">
+          <h2 class="titre-presentation-produits">
+            <%= title %>
+          </h2>
+          <article class="container-produits-catalogue">
+            <% for (const coffee of coffees) { %>
+              <div class="container-produit">
+                <p class="produit_name">
+                  <%=coffee.coffee_name%> - <%= coffee.price_per_kilo %> € le kilo
+                </p>
+                <img src="/images/<%=coffee.reference%>.png" alt="illustration de <%=coffee.coffee_name%>">
+                <a href="/produit/<%=coffee.id%>" class="btn-voir-details">
+                  Détails
+                </a>
+              </div>
+              <% } %>
+          </article>
+        </section>
+
         <!----- section voir plus de produits ----->
 
         <section class="voir-plus-produits">
@@ -53,31 +75,6 @@
         </section>
         <% } %>
 
-          <!----- section produits catalogue----->
-          <h2 class="titre-presentation-produits">
-            <%= title %>
-          </h2>
-
-          <section class="catalogue-produits">
-            <article class="container-produits-catalogue">
-              <% for (const coffee of coffees) { %>
-                <div class="container-produit">
-                  <p class="produit_name">
-                    <%=coffee.coffee_name%> - <%= coffee.price_per_kilo %> € le kilo
-                  </p>
-                  <p class="produit_name">
-
-                  </p>
-                  <img src="/images/<%=coffee.reference%>.png" alt="illustration de <%=coffee.coffee_name%>">
-
-
-                  <a href="/produit/<%=coffee.id%>" class="btn">
-                    Détails
-                  </a>
-                </div>
-                <% } %>
-            </article>
-          </section>
 
           <!-- COMMUNS FOOTER -->
       </main>

@@ -17,24 +17,13 @@
     <%- include('partials/header') %>
       <main>
 
-        <!-- 404 -->
-
         <!----- section image produit ----->
 
         <h1 class="productName">
           <%=coffee.coffee_name%>
         </h1>
-        <div class="container-produit-caracteristiques">
-          <article class="productContainer">
-            <div class="cafe">
-              <a href="">
-                <img src="/images/<%= coffee.reference %>.png" alt="illustration">
-              </a>
-
-            </div>
-
-
-          </article>
+        <section class="container-produit-caracteristiques">
+          <img class="image-produit-selectionne" src="/images/<%= coffee.reference %>.png" alt="illustration">
 
           <article class="details-produit">
             <h2>
@@ -55,7 +44,7 @@
               </li>
             </ul>
           </article>
-        </div>
+        </section>
         <!-- fin section image produits ----- -->
         <!-- COMMUNS FOOTER -->
       </main>

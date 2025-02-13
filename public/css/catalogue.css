@@ -1,183 +1,7 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 .container-global {
   background-color: #333;
   padding: 10px;
 }
-
-.body {
-  font-family: "Roboto Condensed", serif;
-}
-/* ne fonctionne pas sans classe */
-h2 {
-  color: #5a3e2b;
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-}
-
-/* ====== HEADER ====== */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #e6e5da;
-  width: 100%;
-}
-
-#logo {
-  width: 150px; /* Change la taille */
-  height: auto; /* Garde le ratio */
-}
-
-.nav {
-  flex-direction: column;
-  gap: 5px;
-  margin: auto;
-  width: 50%;
-  text-align: end;
-  display: none;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 2rem;
-}
-
-/* JS au clic pour faire apparaitre menu et modifier l'icone */
-/* on récupère la calsse de la nav et du bouton */
-
-.nav.banner--open {
-  display: flex;
-}
-
-.header-menu__button {
-  background-color: #5a3e2b; /* Marron café */
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.header-menu__button::before {
-  content: "\2630"; //icone burger
-
-  margin-right: 0.25rem;
-  display: inline-block;
-  min-width: 1em;
-}
-.header-menu__button.banner--open::before {
-  content: "\00D7"; //icone croix
-}
-
-/* ====== FOOTER ====== */
-.footer {
-  background-color: #5a3e2b; /* Marron foncé pour un effet chaleureux */
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-.footer-container {
-  /* max-width: 1200px;
-  margin: 0 auto; */
-}
-
-.footer-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 10px;
-}
-
-.footer-nav a {
-  color: #e6e5da; /* Couleur douce */
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-/* TODO : hover pour nav ? */
-
-.footer p {
-  font-size: 0.8rem;
-  margin: 5px;
-  opacity: 0.8;
-}
-
-/* ----- section produits catalogue----- */
-/* -----essai nom sur image */
-.container-produits-catalogue {
-  /* position: relative; */
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.container-produit{
-  display : flex;
-  flex-direction: column;
-  border:4px solid red;
-
-}
-
-.container-produit img{
-  width: 100%;
-  height: 15rem;
-  object-fit: cover;
-
-}
-.image-container {
-   position: relative;
-  /* display: inline-block; */
-}
-
-.image-container img {
-  display: block;
-  border-radius :20px;
-  width: 50%;
-  margin:auto
-}
-
-.image-container .produit {
-  position: absolute;
-  left:178px;
-  top: 3%; /* Centre verticalement */
-  background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
-  color: white;
-  padding: 5px 10px;
-  /* font-size: 16px; */
-  font-weight: bold;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-/* ----- */
-
-
-.btn {
-  background-color: #5a3e2b;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-
-  padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  /* margin: auto; */
-}
-
 
 /* ====== MAIN CATALOGUE ====== */
 
@@ -189,7 +13,7 @@ nav a {
   justify-content: space-around;
   text-align: center;
   width: 100%; /* Lien occupe toute la largeur */
-  height: 34vh; /* Lien occupe toute la hauteur */
+  height: 40vh; /* Lien occupe toute la hauteur */
   background-image: url("../images/100955894.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -198,12 +22,13 @@ nav a {
 }
 
 .titre-choisir-cafe {
-  color: rgb(39, 37, 37);
+  color: #080808bd;
   font-weight: bold;
   background-color: rgba(172, 165, 164, 0.5);
   /* position : absolute; */
   bottom: 22px;
-  padding: 15px;
+  padding: 2rem;
+  font-size: 2rem;
 }
 
 .recherche-categorie {
@@ -223,14 +48,6 @@ nav a {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
 }
-
-/* Adaptation pour les petits écrans */
-/* @media (max-width: 480px) {
-  .container-formulaire {
-    width: 95%; /* Augmente la largeur pour occuper plus d’espace */
-    padding: 15px; /* Réduit le padding pour optimiser l'affichage */
-  }
-} */
 
 .recherche-categorie {
   color: #5a3e2b;
@@ -276,54 +93,89 @@ select option {
 }
 
 /* ----- section produits catalogue----- */
-.titre-presentation-produits {
-  color: #5a3e2b;
-  margin-bottom: 10px;
-  padding: 0 20px;
-}
 
 .catalogue-produits {
   display: flex;
   flex-direction: column;
   margin: auto;
-  /* 
-  flex-direction :row;
-  justify-content: space-between; */
-  }
+  gap: 1rem;
+}
 
-  .container-produit-catalogue {
-    /* position: relative; */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    text-align: center;
-    width :100%;
-  }
+.titre-presentation-produits {
+  color: #5a3e2b;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  font-size: 1.5rem;
+}
 
-  .produit_name {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 10px;
-  }
+.container-produits-catalogue {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
+.container-produit-catalogue {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  border: 2px solid #5a3e2b;
+}
 
+.container-produit {
+  display: flex;
+  flex-direction: column;
+  border: 4px solid #5a3e2b;
+  gap: 1rem;
+  border-radius: 1rem;
+  padding: 1rem;
+}
 
+.produit_name {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+}
+
+.container-produit img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+.btn-voir-details {
+  display: block;
+  background-color: #d0c6b8;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.5rem 5rem;
+  border-radius: 5rem;
+  width: fit-content;
+  margin: auto;
+  border: 4px solid #5a3e2b;
+}
+
+/* ----- section voir plus produits -----  */
 .btn-produits {
-  background-color: #c4a27a;
+  background-color: #5a3e2b;
   color: white;
   /* display: block; */
   margin: auto;
   font-size: 18px;
   font-weight: bold;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 8px;
+
+  padding: 1rem 1.5rem;
+  border-radius: 5rem;
   border: 2px solid #5a3e2b;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  width :245px;
+
+  width: 245px;
   text-decoration: none;
   text-align: center;
 }
@@ -336,14 +188,11 @@ select option {
 .voir-plus-produits {
   display: flex;
   flex-direction: column;
-  justify-content:center ;
-  /* padding: 10px; */
+  justify-content: center;
+  margin: 2rem 0 4rem 0;
+  gap: 1rem;
 }
 
-
-
-
-/
 /* ===== MEDIA QUERIES ===== */
 /* Tablette (min-width: 768px) */
 @media (min-width: 768px) {
@@ -369,14 +218,14 @@ select option {
   #image-accueil {
     width: 50%;
     height: auto;
-    max-width:650px;
+    max-width: 650px;
   }
 
   .container-accueil {
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
-    gap:5rem;
+    justify-content: space-around;
+    gap: 5rem;
   }
 
   .container-produits {
@@ -394,13 +243,6 @@ select option {
     flex-direction: row;
     justify-content: center;
   }
-  /* 
-  .container-produit-caracteristiques {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px;
-  } */
 
   .cafe img {
     width: 100%;
@@ -410,18 +252,14 @@ select option {
     margin: 0 auto;
   }
 
-  .catalogue-produits {
-    flex-direction :row;
-    flex-wrap :wrap;
-    
-    margin :20px;
+  .container-produits-catalogue {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 20px;
     justify-content: center;
-       }
-  .container-produit-catalogue{
-    width:30%;
+  }
+  .container-produit-catalogue {
+    /* width:30%; */
     /* max-width: 1200px; */
   }
-
 }
-
-

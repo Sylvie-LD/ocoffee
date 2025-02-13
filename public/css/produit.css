@@ -1,123 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-.container-global {
-  background-color: #333;
-  padding: 10px;
-}
-
-.body {
-  font-family: "Roboto Condensed", serif;
-}
-/* ne fonctionne pas sans classe */
-h2 {
-  color: #5a3e2b;
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-}
-
-/* ====== HEADER ====== */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #e6e5da;
-  width: 100%;
-}
-
-#logo {
-  width: 150px; /* Change la taille */
-  height: auto; /* Garde le ratio */
-}
-
-.nav {
-  flex-direction: column;
-  gap: 5px;
-  margin: auto;
-  width: 50%;
-  text-align: end;
-  display: none;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 2rem;
-}
-
-/* JS au clic pour faire apparaitre menu et modifier l'icone */
-/* on récupère la calsse de la nav et du bouton */
-
-.nav.banner--open {
-  display: flex;
-}
-
-.header-menu__button {
-  background-color: #5a3e2b; /* Marron café */
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.header-menu__button::before {
-  content: "\2630"; //icone burger
-
-  margin-right: 0.25rem;
-  display: inline-block;
-  min-width: 1em;
-}
-.header-menu__button.banner--open::before {
-  content: "\00D7"; //icone croix
-}
-
-/* ====== FOOTER ====== */
-.footer {
-  background-color: #5a3e2b; /* Marron foncé pour un effet chaleureux */
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-.footer-container {
-  /* max-width: 1200px;
-  margin: 0 auto; */
-}
-
-.footer-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 10px;
-}
-
-.footer-nav a {
-  color: #e6e5da; /* Couleur douce */
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-/* TODO : hover pour nav ? */
-
-.footer p {
-  font-size: 0.8rem;
-  margin: 5px;
-  opacity: 0.8;
-}
-
-/* ===== PAGE PRODUIT ===== */
-
 .productName {
   font-size: 2.5rem;
   color: #5a3e2b;
@@ -128,33 +8,16 @@ nav a {
 .container-produit-caracteristiques {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 10px;
 }
 
-.productContainer {
-  background-color: #e6e5da;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-
-  margin: auto;
-}
-
-.cafe {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 100%;
-}
-
-.cafe img {
+.image-produit-selectionne {
   width: 50%;
   height: auto;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   max-width: 100%;
+  margin: auto;
 }
 
 .details-produit {
@@ -167,7 +30,7 @@ nav a {
 }
 
 .details-produit h2 {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: #5a3e2b;
   margin-bottom: 10px;
 }
@@ -182,89 +45,11 @@ nav a {
 }
 
 .details-produit li {
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 5px 0;
   color: #333;
 }
 
-/* ===== MEDIA QUERIES ===== */
-/* Tablette (min-width: 768px) */
-@media (min-width: 768px) {
-  .header {
-    justify-content: flex-start;
-  }
-
-  .header-menu__button {
-    display: none;
-  }
-
-  .nav {
-    display: flex;
-    flex-direction: row;
-    margin: 20px;
-  }
-
-  .nav a {
-    padding: 5px;
-    margin: 2px;
-  }
-
-  #image-accueil {
-    width: 50%;
-    height: auto;
-    max-width: 650px;
-  }
-
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  .container-produit-caracteristiques {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .cafe img {
-    width: 100%;
-  }
-
-  .details-produit {
-    margin: 0 auto;
-  }
-
-  .details-produit {
-    width: 25%;
-    max-height: 40rem;
-  }
-
-  .productContainer {
-    width: 25%;
-  }
-}
-
-/* Desktop (min-width: 1024px) */
-@media (min-width: 1024px) {
-}
-
-/* ===== page 404 ===== */
-
-#img-page-404 {
-  max-width: 100%;
-  margin: auto;
-  border-radius: 20px;
-}
-
-.page-404 {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #6b4f4f;
-  margin-top: 2rem;
-  font-weight: bold;
-}
-
-/* =====produit.ejs ===== */
 .text-green {
   color: green;
   font-weight: bold;
@@ -272,4 +57,28 @@ nav a {
 .text-red {
   color: red;
   font-weight: bold;
+}
+/* ===== MEDIA QUERIES ===== */
+/* Tablette (min-width: 768px) */
+@media (min-width: 768px) {
+  .container-produit-caracteristiques {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .productContainer {
+    width: 50%;
+  }
+
+  .details-produit {
+    margin: 0 auto;
+    width: 30rem;
+    max-height: 40rem;
+    margin: 1rem;
+  }
+
+  .image-produit-selectionne {
+    max-width: 35rem;
+    margin: 1rem;
+  }
 }
