@@ -11,7 +11,7 @@
 
     <!-- style -->
     <link rel="stylesheet" href="/css/accueil.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <!-- <link rel="stylesheet" href="/css/styles.css"> -->
 
 
 </head>
@@ -31,7 +31,7 @@
               une
               expertise approfondie et un amour profond pour cette délicieuse boisson, ils ont créé un espace où le café
               est célébré comme une expérience raffinée et inspirante.</p>
-            <a href="/catalogue">Voir notre catalogue</a>
+            <a class="btn-accueil" href="/catalogue">Voir notre catalogue</a>
           </article>
           <img id="image-accueil" src="/images/about.jpg" alt="à décrire">
 
@@ -39,25 +39,20 @@
 
         <section class="nouveautes">
           <h2>Nouveautés</h2>
-          <div class="container-produits">
-
-            <!-- <p>Type de coffees dans EJS : <%# typeof coffees %>
-        </p>
-        <pre>Contenu de coffees dans EJS : <%# JSON.stringify(coffees, null, 2) %></pre> -->
-
+          <ul class="container-produits">
 
             <% for (const coffee of coffees) { %>
-              <article class="container-produit">
-                <div class="image-container">
-                  <img src="/images/<%= coffee.reference %>.png" alt="à décrire">
-                  <p class="produit">
-                    <%= coffee.coffee_name %>
-                  </p>
-                </div>
-                <a href="/produit/<%= coffee.id %>" class="btn">Découvrir le produit</a>
-              </article>
+
+              <li class="container-produit">
+                <p class="produit">
+                  <%= coffee.coffee_name %>
+                </p>
+                <img src="/images/<%= coffee.reference %>.png" alt="illustration du cafe <%= coffee.coffee_name %>">
+                <a href="/produit/<%= coffee.id %>" class="btn-nouveautes">Découvrir le produit</a>
+              </li>
               <% } %>
-          </div>
+
+          </ul>
         </section>
 
       </main>

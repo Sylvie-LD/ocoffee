@@ -19,43 +19,44 @@ h2 {
 }
 
 /* ====== HEADER ====== */
-/* .header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #d1c21c;
+  background-color: #e6e5da;
   width: 100%;
-} */
+}
 
-/* #logo {
+#logo {
   width: 150px; /* Change la taille */
   height: auto; /* Garde le ratio */
-} */
+}
 
-/* .nav {
+.nav {
   flex-direction: column;
   gap: 5px;
   margin: auto;
   width: 50%;
   text-align: end;
   display: none;
-} */
+}
 
-/* nav a {
+nav a {
   text-decoration: none;
   color: #333;
   font-size: 2rem;
-} */
+}
 
+/* JS au clic pour faire apparaitre menu et modifier l'icone */
+/* on récupère la calsse de la nav et du bouton */
 
-
-/* .nav.banner--open {
+.nav.banner--open {
   display: flex;
-} */
+}
 
-/* .header-menu__button {
-  background-color: #5a3e2b; 
+.header-menu__button {
+  background-color: #5a3e2b; /* Marron café */
   color: white;
   font-size: 1rem;
   font-weight: bold;
@@ -77,82 +78,60 @@ h2 {
 }
 .header-menu__button.banner--open::before {
   content: "\00D7"; //icone croix
-} 
+}
 
 /* ====== MAIN ACCUEIL====== */
-/* .main-container {
+main {
   padding: 0px;
   background-color: #d0c6b8;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* max-width: 1200px; 
-  margin: 11px 0 20px 0; 
-} */
+  /* max-width: 1200px; */
+  margin: 11px 0 20px 0; /* Centre le contenu */
+}
 
 /* ----- Section accueil ----- */
 .container-accueil {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #d0c6b8;
 }
 
 .h1 {
   font-size: 2rem;
   color: #5a3e2b;
   margin-bottom: 10px;
-  padding-bottom :20px;
+  padding-bottom: 20px;
 }
 
-.texte-accueil{
-  display:flex;
+.texte-accueil {
+  display: flex;
   flex-direction: column;
-width :50%
+  width: 50%;
 }
 
-#img-freres{
-  width :50%
- 
+#img-freres {
+  width: 50%;
 }
 
 .texte-accueil p {
   font-size: 1.3rem;
   text-align: justify;
   line-height: 1.3rem;
-  margin : 3rem 0;
-
+  margin: 3rem 0;
 }
 
 #image-accueil {
- display:none
+  display: none;
 }
 
 #img-produit {
   width: 50%;
   height: auto;
- 
-}
-
-.texte-accueil a {
-  display: inline-block;
-  background-color: #5a3e2b;
-  color: #fff;
-  text-decoration: none;
-  margin-top: 15px; /* Espacement avec le texte au-dessus */
-
-  padding: 10px 20px;
-  border-radius: 5px;
-
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* TODO : texte-accueil hover */
-
-.texte-accueil a:hover {
-  background-color: #7a5b44; /* Un marron plus clair au survol */
-  transform: scale(1.05); /* Effet léger d'agrandissement */
-}
 
 /* ----- Section présentation ----- */
 .container-présentation {
@@ -171,6 +150,23 @@ width :50%
   text-align: justify;
 }
 
+.btn-accueil {
+  display: block;
+  background-color: #5a3e2b;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  width: fit-content;
+  border-radius: 2rem;
+}
+
+.btn-accueil a:hover {
+  background-color: #7a5b44; /* Un marron plus clair au survol */
+  transform: scale(1.05); /* Effet léger d'agrandissement */
+}
 /* ----- Section nouveautés ----- */
 
 .nouveautes {
@@ -184,82 +180,49 @@ width :50%
   font-size: 1.5rem;
 }
 
+/* ul */
 .container-produits {
   display: flex;
   flex-direction: column;
+  gap: 3rem;
 }
 
+/* li */
 .container-produit {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-}
-
-/*
-/* ----- section produits catalogue----- */
-/* -----essai nom sur image */
-.container-produit-catalogue {
-  /* position: relative; */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-  text-align: center;
-  width :100%;
-}
-.image-container {
-   position: relative;
-  /* display: inline-block; */
-}
-
-.image-container img {
-  display: block;
-  border-radius :20px;
-  width: 50%;
-  margin:auto
-}
-
-.image-container .produit {
-  position: absolute;
-  left:178px;
-  top: 3%; /* Centre verticalement */
-  background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
-  color: white;
-  padding: 5px 10px;
-  /* font-size: 16px; */
-  font-weight: bold;
+  border: 2px solid #5a3e2b;
   border-radius: 5px;
-  font-size: 1rem;
+  flex-grow: 1;
+  flex-basis: 16rem;
 }
 
-/* ----- */
+.container-produit img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
 
+.container-produit p {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+}
 
-.btn {
+.btn-nouveautes {
+  display: block;
   background-color: #5a3e2b;
   color: #fff;
   text-decoration: none;
   font-size: 1rem;
-
   padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  /* margin: auto; */
 }
 
 /* ====== FOOTER ====== */
-.footer {
-  background-color: #5a3e2b; /* Marron foncé pour un effet chaleureux */
+/* .footer {
+  background-color: #5a3e2b;
   color: #fff;
   text-align: center;
   padding: 20px;
   margin-top: 20px;
-}
-
-.footer-container {
-  /* max-width: 1200px;
-  margin: 0 auto; */
 }
 
 .footer-nav {
@@ -270,41 +233,58 @@ width :50%
 }
 
 .footer-nav a {
-  color: #e6e5da; /* Couleur douce */
+  color: #e6e5da;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
-/* TODO : hover pour nav ? */
-
 .footer p {
   font-size: 0.8rem;
   margin: 5px;
   opacity: 0.8;
-}
+} */
 
 /* ===== MEDIA QUERIES ===== */
 /* Tablette (min-width: 768px) */
 @media (min-width: 768px) {
-  
+  .header {
+    justify-content: flex-start;
+  }
+
+  .header-menu__button {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+  }
+
+  .nav a {
+    padding: 5px;
+    margin: 2px;
+  }
 
   #image-accueil {
+    display: flex;
     width: 50%;
     height: auto;
-    max-width:650px;
+    max-width: 650px;
   }
 
   .container-accueil {
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
-    gap:5rem;
+    justify-content: space-around;
+    gap: 5rem;
   }
 
   .container-produits {
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
 
   .footer-container {
@@ -312,60 +292,6 @@ width :50%
     justify-content: space-between;
     gap: 10px;
   }
-
-  .container-produit-caracteristiques {
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-
-  .cafe img {
-    width: 100%;
-  }
-
-  .details-produit {
-    margin: 0 auto;
-  }
-
-  .catalogue-produits {
-    flex-direction :row;
-    flex-wrap :wrap;
-    
-    margin :20px;
-    justify-content: center;
-       }
-  .container-produit-catalogue{
-    width:30%;
-    /* max-width: 1200px; */
-  }
-
 }
 
-
-/* ===== page 404 ===== */
-
-#img-page-404 {
-  max-width: 100%;
-   margin: auto;
-  border-radius: 20px;
- 
-}
-
-.page-404 {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #6b4f4f;
-  margin-top: 2rem;
-  font-weight: bold;
-}
-
-
-/* =====produit.ejs ===== */
-.text-green {
-  color: green;
-  font-weight: bold;
-}
-.text-red {
-  color: red;
-  font-weight: bold;
-}
+/* ===== FIN MEDIA QUERIES ===== */
