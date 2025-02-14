@@ -1,7 +1,6 @@
 import client from "./database.js";
 
-// pour exporter dataMapper
-
+//
 export async function getAllCoffees(limit = 3) {
   const result = await client.query(
     `SELECT * FROM "coffee" ORDER BY "coffee_name" ASC LIMIT $1`,

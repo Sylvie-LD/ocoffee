@@ -1,11 +1,10 @@
-.container-global {
-  background-color: #333;
-  padding: 10px;
-}
-
 /* ====== MAIN CATALOGUE ====== */
 
-/* ----- section notre catalogue ----- */
+h1 {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
 /* background image */
 .container-catalogue {
   display: flex;

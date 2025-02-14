@@ -4,7 +4,7 @@ export const searchByCategory = async (req, res, next) => {
   const category = req.query.category;
   try {
     const coffees = await dataMapper.getCoffeesByCategory(category);
-    const title = `Liste des café dont le nom contient ${category}`;
+    const title = `Liste des café de la catégorie : ${category}`;
 
     if (!coffees || coffees.length === 0) {
       return next();

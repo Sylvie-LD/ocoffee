@@ -30,7 +30,7 @@
 
           <form action="/search/category" method="get">
             <select name="category" id="categorie">
-              <option value="null">aucune</option>
+              <option value="null">toutes les catégories</option>
               <% for (const category of categories) { %>
                 <option value="<%= category.feature %>">
                   <%= category.feature %>

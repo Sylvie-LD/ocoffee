@@ -1,8 +1,10 @@
 /* ----- Section accueil ----- */
+
 .container-accueil {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
 }
 
 .h1 {

@@ -18,6 +18,9 @@ app.set("views", path.join(import.meta.dirname, "./app/views"));
 // Ajout d'un dossier public pour les ressources statiques
 app.use(express.static(path.join(import.meta.dirname, "./public")));
 
+// Favicon static route
+app.use("/favicon.ico", express.static("./public/images/logo.svg"));
+
 // Brancher le routeur
 app.use(router);
 
@@ -27,7 +30,7 @@ app.use((req, res) => {
 });
 
 // Middleware 500 : capture les erreurs internes de l'application
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
   console.error(error);
   res.status(500).render("500", { message: error.message });
 });
