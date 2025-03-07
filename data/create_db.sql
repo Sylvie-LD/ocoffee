@@ -1,5 +1,7 @@
 
 set client_encoding to utf8;
+BEGIN; -- Débute une transaction = si l'une des commandes échoue, elles échouent toutes !
+
 
 -- Suppression de coffee avant les autres car coffee dépend des 2 autres
 DROP TABLE IF EXISTS "coffee" CASCADE;
@@ -9,13 +11,17 @@ DROP TABLE IF EXISTS "feature" CASCADE;
 -- Création de la table des origines
 CREATE TABLE "origin" (
     "id" SERIAL PRIMARY KEY,
-    "country_name" VARCHAR(50) NOT NULL
+    "country_name" VARCHAR(50) NOT NULL,
+     "created_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMPTZ
 );
 
 -- Création de la table des caractéristiques
 CREATE TABLE "feature" (
     "id" SERIAL PRIMARY KEY,
-    "feature" VARCHAR(50) NOT NULL
+    "feature" VARCHAR(50) NOT NULL,
+     "created_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMPTZ
 );
 
 -- Création de la table des cafés, TEXT au cas où la description est longue, DECIMAL et non INT
@@ -27,7 +33,9 @@ CREATE TABLE "coffee" (
     "price_per_kilo" DECIMAL(10,2) NOT NULL,
     "available" BOOLEAN NOT NULL DEFAULT TRUE,
     "origin_id" INT REFERENCES "origin"("id") ON DELETE CASCADE,
-    "feature_id" INT REFERENCES "feature"("id") ON DELETE CASCADE
+    "feature_id" INT REFERENCES "feature"("id") ON DELETE CASCADE,
+     "created_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMPTZ
 );
 
 -- Insertion des origines
@@ -57,3 +65,5 @@ INSERT INTO "coffee" ("coffee_name", "description", "reference", "price_per_kilo
 ('Peruvian Arabica', 'Café équilibré avec des notes de chocolat, une acidité modérée et un corps velouté.', '954589100', 19.40, FALSE, 14, 6),
 ('Hawaiian Kona', 'Café rare au goût riche, une acidité douce et des nuances subtiles.', '958090105', 55.75, FALSE, 15, 4),
 ('Nicaraguan Maragogipe', 'Café avec des notes de fruits, une acidité vive et un corps plein.', '691550753', 28.60, FALSE, 16, 3);
+
+COMMIT; -- Fin de la transaction
