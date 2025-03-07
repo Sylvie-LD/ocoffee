@@ -4,7 +4,7 @@ set client_encoding to utf8;
 -- Suppression de coffee avant les autres car coffee dépend des 2 autres
 DROP TABLE IF EXISTS "coffee" CASCADE;
 DROP TABLE IF EXISTS "origin" CASCADE;
-DROP TABLE IF EXISTS "features" CASCADE;
+DROP TABLE IF EXISTS "feature" CASCADE;
 
 -- Création de la table des origines
 CREATE TABLE "origin" (
@@ -13,7 +13,7 @@ CREATE TABLE "origin" (
 );
 
 -- Création de la table des caractéristiques
-CREATE TABLE "features" (
+CREATE TABLE "feature" (
     "id" SERIAL PRIMARY KEY,
     "feature" VARCHAR(50) NOT NULL
 );
@@ -27,17 +27,16 @@ CREATE TABLE "coffee" (
     "price_per_kilo" DECIMAL(10,2) NOT NULL,
     "available" BOOLEAN NOT NULL DEFAULT TRUE,
     "origin_id" INT REFERENCES "origin"("id") ON DELETE CASCADE,
-    "feature_id" INT REFERENCES "features"("id") ON DELETE CASCADE
+    "feature_id" INT REFERENCES "feature"("id") ON DELETE CASCADE
 );
 
 -- Insertion des origines
-INSERT INTO "origin" ("country_name") VALUES
-('Italie'), ('Colombie'), ('Éthiopie'), ('Brésil'), ('Guatemala'),
+INSERT INTO "origin" ("country_name") VALUES('Italie'), ('Colombie'), ('Éthiopie'), ('Brésil'), ('Guatemala'),
 ('Kenya'), ('Indonésie'), ('Costa Rica'), ('Vietnam'), ('Tanzanie'),
 ('Jamaïque'), ('Rwanda'), ('Panama'), ('Pérou'), ('Hawaï'), ('Nicaragua');
 
 -- Insertion des caractéristiques
-INSERT INTO "features" ("feature") VALUES
+INSERT INTO "feature" ("feature") VALUES
 ('Corsé'), ('Acide'), ('Fruité'), ('Doux'), ('Épicé'), ('Chocolaté');
 
 -- Insertion des cafés 

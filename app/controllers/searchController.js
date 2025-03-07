@@ -5,13 +5,14 @@ export const searchByCategory = async (req, res, next) => {
   try {
     const coffees = await dataMapper.getCoffeesByCategory(category);
     const title = `Liste des café de la catégorie : ${category}`;
+    const categories = await dataMapper.getAllCategories();
 
     if (!coffees || coffees.length === 0) {
       return next();
     }
     res.render("catalogue", {
       coffees,
-      categories: res.locals.categories,
+      categories,
       title,
     });
   } catch (error) {

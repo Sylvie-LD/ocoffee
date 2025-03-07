@@ -6,6 +6,9 @@
 .container-global {
   background-color: #333;
   padding: 10px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .body {
