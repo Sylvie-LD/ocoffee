@@ -3,50 +3,42 @@
 import { Coffee } from "../models/coffee.js";
 import { Feature } from "../models/feature.js";
 
-export const renderHomePage = async (req, res, next) => {
-  try {
-    const coffees = await Coffee.findAll({ limit: 3 });
-    res.render("accueil", { coffees });
-  } catch (error) {
-    next(error);
-  }
+// Express attrape automatiquement les erreurs asynchrones dans les fonctions async.
+// Si Coffee.findAll() échoue (par exemple, si la base de données est inaccessible), Express va automatiquement passer l'erreur au middleware d'erreur (errorHandler).
+export const renderHomePage = async (req, res) => {
+  const coffees = await Coffee.findAll({ limit: 3 });
+  res.render("accueil", { coffees });
 };
 
-export const renderCatalogPage = async (req, res, next) => {
+export const renderCatalogPage = async (req, res) => {
   const title = "Découvrez nos cafés";
-  try {
-    // sI URL contient?all=true
-    const showAll = req.query.all === "true";
-    console.log(
-      `Query Params - all: ${showAll}, name: ${req.query.name}, limit: ${req.query.limit}`
-    );
-    const coffees = await Coffee.findAll({ limit: showAll ? 100 : 3 });
-    const categories = await Feature.findAll();
-    res.render("catalogue", {
-      coffees,
-      categories,
-      title,
-    });
-  } catch (error) {
-    next(error);
-  }
+
+  // sI URL contient?all=true
+  const showAll = req.query.all === "true";
+  console.log(
+    `Query Params - all: ${showAll}, name: ${req.query.name}, limit: ${req.query.limit}`
+  );
+  const coffees = await Coffee.findAll({ limit: showAll ? 100 : 3 });
+  const categories = await Feature.findAll();
+
+  res.render("catalogue", {
+    coffees,
+    categories,
+    title,
+  });
 };
 
 export const renderProductPage = async (req, res, next) => {
-  try {
-    const coffeeId = parseInt(req.params.id);
-    if (isNaN(coffeeId)) {
-      return next(); // Déclenche une 404 si l'ID est invalide
-    }
-
-    const coffee = await Coffee.findByPk(coffeeId);
-    if (!coffee) {
-      return next(); // Déclenche une 404 si le produit n'existe pas
-    }
-    res.render("produit", { coffee });
-  } catch (error) {
-    next(error);
+  const coffeeId = parseInt(req.params.id);
+  if (isNaN(coffeeId)) {
+    return next(); // Déclenche une 404 si l'ID est invalide
   }
+
+  const coffee = await Coffee.findByPk(coffeeId);
+  if (!coffee) {
+    return next(); // Déclenche une 404 si le produit n'existe pas
+  }
+  res.render("produit", { coffee });
 };
 
 export const renderContactPage = (req, res) => {
