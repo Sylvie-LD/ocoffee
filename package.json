@@ -11,7 +11,11 @@
     "start": "node index.js",
     "dev": "node --watch index.js",
     "commit": "navi commit",
-    "db:reset": "psql -U coffee -d coffee -f ./data/create_db.sql"
+    "connect": "psql -U coffee -d coffee",
+    "db:create": "psql -U coffee -d coffee -f ./data/create_tables.sql",
+    "db:populate": "psql -U coffee -d coffee -f ./data/populate_tables.sql",
+    "db:reset": "npm run db:create && npm run db:populate",
+    "db:reset2": "psql -U coffee -d coffee -f ./data/create_db.sql"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +25,8 @@
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "leaflet": "^1.9.4",
-    "pg": "^8.13.1"
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.6"
   },
   "devDependencies": {
     "eslint": "^9.20.0",

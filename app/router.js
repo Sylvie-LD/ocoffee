@@ -7,33 +7,17 @@ import * as searchController from "./controllers/searchController.js";
 
 const router = Router();
 
-router.get(
-  "/",
-
-  mainController.renderHomePage
-);
+router.get("/", mainController.renderHomePage);
 
 // page catalogue
-router.get(
-  "/catalogue",
-
-  mainController.renderCatalogPage
-);
+router.get("/catalogue", mainController.renderCatalogPage);
 
 // page produit
-router.get(
-  "/produit/:id",
-
-  mainController.renderProductPage
-);
+router.get("/produit/:id", mainController.renderProductPage);
 
 // page recherche
 
-router.get(
-  "/search/category",
-
-  searchController.searchByCategory
-);
+router.get("/search/category", searchController.searchByCategory);
 
 //  page contact
 router.get("/contact", mainController.renderContactPage);
